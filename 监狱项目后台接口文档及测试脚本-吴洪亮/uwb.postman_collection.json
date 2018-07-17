@@ -1,0 +1,777 @@
+{
+	"info": {
+		"name": "uwb",
+		"_postman_id": "aec32eaf-41a5-b219-0480-ad35d369f14f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"description": "",
+			"item": [
+				{
+					"name": "登录接口--192.168.10.9:8800/permission/user/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ee4b0cf1-b26d-4cd9-9cc7-bcc63faf2ab7",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");",
+									"});",
+									"",
+									"pm.variables.get(\"variable_key\");",
+									"",
+									"pm.globals.get(\"variable_key\");",
+									"",
+									"pm.environment.unset(\"variable_key\");",
+									"",
+									"pm.globals.unset(\"variable_key\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"admin\",\"password\":\"MTIzNDU2\"}"
+						},
+						"url": {
+							"raw": "192.168.10.9:8800/permission/user/login",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"9"
+							],
+							"port": "8800",
+							"path": [
+								"permission",
+								"user",
+								"login"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Token校验--192.168.10.9:8800/permission/user/islogin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiMCIsInVuaXF1ZV9uYW1lIjoiYWRtaW4iLCJ1c2VyaWQiOiIxIiwiaXNzIjoicHJpc29uIiwiYXVkIjoiemxfcHJpc29uIn0.oAy1jURwxvyq5B6qQkiA30dz7eHJJKH60OdyMJrhZzwnull\"}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8800/permission/user/islogin",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8800",
+							"path": [
+								"permission",
+								"user",
+								"islogin"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "用户退出--192.168.10.9:8800/permission/user/logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJI2UzI1NiJ9.eyJyb2xlIjoiMCIsInVuaXF1ZV9uYW1lIjoiYWRtaW4iLCJ1c2VyaWQiOiIxIiwiaXNzIjoicHJpc29uIiwiYXVkIjoiemxfcHJpc29uIn0.oAy1jURwxvyq5B6qQkiA30dz7eHJJKH60OdyMJrhZzwnull\"}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8800/permission/user/logout",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8800",
+							"path": [
+								"permission",
+								"user",
+								"logout"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Resources",
+			"description": "",
+			"item": [
+				{
+					"name": "监仓业页总接口 -- 192.168.10.123:8801/prison/area/query",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"areaCode\":\"0101031000\"}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/area/query",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"area",
+								"query"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "首页接口--192.168.10.123:8801/prison/area/areas/query",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "192.168.10.9:8801/prison/area/areas/query",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"9"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"area",
+								"areas",
+								"query"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "监仓报警列表--192.168.10.123:8801/prison/area/warning",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"areaCode\":\"0101030900\",\"listRows\":10,\"sort\":\"timestamp\",\"order\":\"desc\",\"page\":1}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/area/warning",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"area",
+								"warning"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "监仓缺勤列表--192.168.10.123:8801/prison/area/absence",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"areaCode\":\"0101030900\"\n}"
+						},
+						"url": {
+							"raw": "192.168.10.9:8801/prison/area/absence",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"9"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"area",
+								"absence"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "大区间 --192.168.10.123:8801/prison/domain/queryCode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/domain/queryCode",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"domain",
+								"queryCode"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "楼栋--192.168.10.123:8801/prison/building/queryCode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"codeValue\":\"01\"\n}"
+						},
+						"url": {
+							"raw": "192.168.10.9:8801/prison/building/queryCode",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"9"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"building",
+								"queryCode"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "区域--192.168.10.123:8801/prison/area/queryCode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"codeValue\":\"010102\"\n}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/area/queryCode",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"area",
+								"queryCode"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "楼层--192.168.10.123:8801/prison/floor/queryCode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"codeValue\":\"0101\"\n}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/floor/queryCode",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"floor",
+								"queryCode"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "区域统计电子点名--192.168.10.123:8801/prison/area/summary",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"areaCode\":\"0101030900\"\n}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/area/summary",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"area",
+								"summary"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "囚犯信息--192.168.10.123:8801/prison/prisoner/info",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":\"005\",\n  \"limit\":3\n}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/prisoner/info",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"prisoner",
+								"info"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "囚犯报警列表--192.168.10.123:8801/prison/prisoner/warnings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\":\"013\",\"sort\":\"\",\"order\":\"\",\"page\":\"\",\"listRows\":12}"
+						},
+						"url": {
+							"raw": "192.168.10.9:8801/prison/prisoner/warnings",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"9"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"prisoner",
+								"warnings"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "分监区报警列表--192.168.10.123:8801/prison/warning/areas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":8847}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/warning/areas",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"warning",
+								"areas"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "报警处理--192.168.10.123:8801/prison/warning/manage",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id\":1001,\"state\":1,\"remark\":\"误报\"}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/warning/manage",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"warning",
+								"manage"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "监仓囚犯查询--192.168.10.123:8801/prison/area/prisoners",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"areaCode\":\"0101030900\"}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/area/prisoners",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"area",
+								"prisoners"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "未查阅报警数量--192.168.10.123:8802/websocket/tcp/get",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8802/websocket/tcp/get",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8802",
+							"path": [
+								"websocket",
+								"tcp",
+								"get"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "重置未查询报警数量--192.168.10.123:8801/prison/warning/reset",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"amount\":123}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8801/prison/warning/reset",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8801",
+							"path": [
+								"prison",
+								"warning",
+								"reset"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Websocket",
+			"description": "",
+			"item": [
+				{
+					"name": "websocket监仓信息-192.168.10.123:8802/websocket/tcp/areaInfo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"areaCode\":\"0101031000\"}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8802/websocket/tcp/areaInfo",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8802",
+							"path": [
+								"websocket",
+								"tcp",
+								"areaInfo"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "websocket获取囚犯坐标-192.168.10.123:8802/websocket/tcp/prisoner",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"tagId\":4}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8802/websocket/tcp/prisoner",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8802",
+							"path": [
+								"websocket",
+								"tcp",
+								"prisoner"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "websocket重置未查询报警数量--192.168.10.123:8802/websockett/tcp/reset",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"amount\":55}"
+						},
+						"url": {
+							"raw": "192.168.10.123:8802/websocket/tcp/reset",
+							"host": [
+								"192",
+								"168",
+								"10",
+								"123"
+							],
+							"port": "8802",
+							"path": [
+								"websocket",
+								"tcp",
+								"reset"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

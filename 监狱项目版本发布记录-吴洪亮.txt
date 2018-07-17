@@ -1,0 +1,29 @@
+1 prisonWEB     
+  SVN版本:  15556
+  源码路径：svn://192.168.10.6/adsys/trunk/UWB定位系统/智慧监狱管理系统/src/prisonWEB
+  说明：    监狱项目前端源码
+  
+2 zl_permission
+  SVN版本:  15558
+  源码路径：svn://192.168.10.6/adsys/trunk/UWB定位系统/智慧监狱管理系统/src/Java/zl_permission
+  说明：    监狱项目用户登录服务,通用的用户认证服务
+  
+3 zl_resources
+   SVN版本:  15560
+   源码路径：svn://192.168.10.6/adsys/trunk/UWB定位系统/智慧监狱管理系统/src/Java/zl_resources
+   说明：    监狱项目静态数据服务
+ 
+4 zl_websocket
+   SVN版本:  15560
+   源码路径：svn://192.168.10.6/adsys/trunk/UWB定位系统/智慧监狱管理系统/src/Java/zl_websocket
+   说明：    监狱项目websocket服务和Tcp服务，实现实时数据处理功能   
+   
+5 文档
+  SVN版本:  15561
+  文件路径：svn://192.168.10.6/adsys/trunk/UWB定位系统/智慧监狱管理系统/doc/UWB后台接口文档及测试脚本-吴洪亮
+  说明：    后台接口详细说明文档
+6 测试
+  服务地址：192.168.10.9:8899
+  测试账户：admin/123456  
+
+   
