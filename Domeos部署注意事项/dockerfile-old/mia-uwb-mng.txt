@@ -1,0 +1,24 @@
+# 版本信息
+From pub.domeos.cn/domeos/runimage-java:jre-8
+MAINTAINER service@zhilutec.com
+
+RUN mkdir -p /home/project/uwb/config/status \
+&& mkdir -p /home/project/uwb/config/storage \
+&& mkdir -p /home/project/uwb/
+
+# 拷贝配置文件
+ADD http://123.207.39.248:20080/uwb/config/status/application.properties /home/project/uwb/config/status /application.properties
+ADD http://123.207.39.248:20080/uwb/config/storage/application.properties /home/project/uwb/config/storage/application.properties
+
+# 拷贝服务
+ADD http://123.207.39.248:20080/uwb/jars/localhost/zl_status-1.0.0-uwb-SNAPSHOT.jar /home/project/uwb
+ADD http://123.207.39.248:20080/uwb/jars/localhost/zl_storage-1.0.0-uwb-SNAPSHOT.jar /home/project/uwb
+
+# 拷贝脚本
+ADD http://123.207.39.248:20080/uwb/shell/services-mng.sh /home/project/uwb/services.sh
+
+#启动服务
+RUN chmod +x /home/project/uwb/services.sh
+#CMD ["/home/project/uwb/services.sh start"]
+ENTRYPOINT ["/bin/bash","/home/project/uwb/services.sh","start"]
+#CMD ["java", "-jar", "-Xms64m", "-Xmx64m", "-Dspring.config.location=/home/project/uwb/config/center/application.properties", "/home/project/uwb/zl_center-1.0.0-uwb-SNAPSHOT.jar"]

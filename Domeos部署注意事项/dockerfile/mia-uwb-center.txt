@@ -1,0 +1,20 @@
+# 版本信息
+From pub.domeos.cn/domeos/runimage-java:jre-8
+MAINTAINER service@zhilutec.com
+
+RUN mkdir -p /home/project/uwb/config/uwb-modules-center \
+&& mkdir -p /home/project/uwb/
+
+# 拷贝配置文件
+ADD http://123.207.39.248:20080/uwb/config/uwb-modules-center/application.properties /home/project/uwb/config/uwb-modules-center/application.properties
+
+# 拷贝服务
+ADD http://123.207.39.248:20080/uwb/jars/uwb-modules-center-1.0.0-SNAPSHOT.jar /home/project/uwb
+
+# 拷贝脚本
+ADD http://123.207.39.248:20080/uwb/shell/uwb.sh /home/project/uwb/uwb.sh
+
+#启动服务
+RUN chmod +x /home/project/uwb/uwb.sh
+#CMD ["/home/project/uwb/uwb.sh start"]
+ENTRYPOINT ["/bin/bash","/home/project/uwb/uwb.sh","start"]

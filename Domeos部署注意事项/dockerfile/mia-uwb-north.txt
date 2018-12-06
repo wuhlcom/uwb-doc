@@ -1,0 +1,24 @@
+# 版本信息
+From pub.domeos.cn/domeos/runimage-java:jre-8
+#FROM daocloud.io/java:8 
+MAINTAINER service@zhilutec.com
+
+RUN mkdir -p /home/project/uwb/config/uwb-modules-websocket \
+&& mkdir -p /home/project/uwb/config/uwb-modules-access \
+&& mkdir -p /home/project/uwb/
+
+# 拷贝配置文件
+ADD http://123.207.39.248:20080/uwb/config/uwb-modules-websocket/application.properties /home/project/uwb/config/uwb-modules-websocket/application.properties
+ADD http://123.207.39.248:20080/uwb/config/uwb-modules-access/application.properties /home/project/uwb/config/uwb-modules-access/application.properties
+
+# 拷贝服务
+ADD http://123.207.39.248:20080/uwb/jars/uwb-modules-websocket-1.0.0-SNAPSHOT.jar /home/project/uwb
+ADD http://123.207.39.248:20080/uwb/jars/uwb-modules-access-1.0.0-SNAPSHOT.jar /home/project/uwb
+
+# 拷贝脚本
+ADD http://123.207.39.248:20080/uwb/shell/uwb.sh /home/project/uwb/uwb.sh
+
+#启动服务
+RUN chmod +x /home/project/uwb/uwb.sh
+ENTRYPOINT ["/bin/bash","/home/project/uwb/uwb.sh","start"]
+#CMD ["java", "-jar", "-Xms64m", "-Xmx256m", "/home/project/uwb/uwb-modules-access-1.0.0-SNAPSHOT.jar"]

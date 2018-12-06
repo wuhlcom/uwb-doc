@@ -1,0 +1,28 @@
+Dcoker部署平台地址
+http://123.207.39.248:18080/login/login.html#!/overview
+admin/zhilu@2016
+
+
+构建项目工程之前要先将项目工程对应的服务停止
+Dockerfile关联文件地址
+123.207.39.248:1118/zldata/mia/docker/uwb
+jar目录  spring jar包
+shell目录 jar包执行脚本
+config目录 spring boot包配置文件
+
+
+前端
+fastdfs，nginx,前端代码在174上面
+服务器地址119.29.67.174
+root/Zhilu@2016
+相关目录
+zldata/uwb/web 前端代码
+zldata/uwb/config  fdfs配置和nginx配置文件
+
+zuul路由查看
+http://123.207.39.248:8080/login
+路由数据库
+123.207.39.248:13306
+MIA_Gw_db
+
+
